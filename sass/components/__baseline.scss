@@ -1,0 +1,22 @@
+$ratio-minor-second: 16/15;
+$ratio-major-second: 9/8;
+$ratio-minor-third: 6/5;
+$ratio-major-third: 5/4;
+$ratio-perfect-fourth: 4/3;
+$ratio-aug-fourth: 1.1414;
+$ratio-prefect-fifth: 3/2;
+$ratio-golden: 1.618;
+$ratio-major-sixth: 5/3;
+$ratio-major-seventh: 15/8;
+$ratio-octave: 2;
+$ratio-major-tenth: 5/2;
+$ratio-major-tenth: 8/3;
+$ratio-major-twelfth: 3;
+$ratio-double-octave: 4;
+
+$default-font-size: 17;
+$default-line-height: $ratio-golden;
+
+$base-font-size: $default-font-size/16;
+$base-line-height: $base-font-size * $default-line-height;
+$font-ratio: $ratio-prefect-fifth;

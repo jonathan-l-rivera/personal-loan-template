@@ -1,0 +1,69 @@
+/* Base Fonts */
+
+$font-stack: Open Sans, sans-serif;
+
+
+/* Font Size Varients */
+
+$mega-font-size: $base-font-size * pow($font-ratio, 4);
+$h1-font-size: $base-font-size * pow($font-ratio, 3);
+$h2-font-size: $base-font-size * pow($font-ratio, 2);
+$h3-font-size:$base-font-size * $font-ratio;
+$h4-font-size: $base-font-size;
+
+
+/* Typography CSS */
+
+html{
+	font-size: 1em;
+	font-family: $font-stack;
+}
+
+h1{
+	font-size: $h1-font-size * 1rem;
+	line-height: roundUpToAny($h1-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(1);
+}
+
+h2{
+	font-size: $h2-font-size * 1rem;
+	line-height: roundUpToAny($h2-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(1);
+}
+
+h3{
+	font-size: $h3-font-size * 1rem;
+	line-height: roundUpToAny($h3-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(1);
+}
+
+h4{
+	font-size: $h4-font-size * 1rem;
+	line-height: roundUpToAny($h4-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(1);
+}
+
+h5,
+h6,
+p{
+	font-size: $base-font-size * 1rem;
+	line-height: roundUpToAny($base-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(1);
+}
+
+.caption{
+	font-size: $h3-font-size * 1rem;
+	line-height: $h2-font-size * 1rem;	
+}
+
+.mega{
+	font-size: $mega-font-size * 1rem;
+	line-height: roundUpToAny($mega-font-size) * 1rem;
+	font-family: $font-stack;
+	margin-bottom: baseline(2);
+}

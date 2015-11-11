@@ -1,0 +1,37 @@
+/*  Round a number to the nearist multiple of another 
+*	
+*	@param : Base number to round
+* 	@param : Multiple to round to
+*
+*/
+/*  Easily equate exponents 
+*	
+*	@param : Base
+* 	@param : Power
+*
+*/
+/*  Easily calculate multiples of the baseline. 
+*	
+*	@param : Multiplyer
+* 	@param : Baseline number
+*
+*/
+/* Colors:
+
+	* Always use HSLA. Ex. (255, 255, 255, 1);
+	* Keep the priorities and values in order.
+	* Colors main-
+	* Nuetrals, Whites, and Blacks Go
+
+Naming Conventions:
+	
+		
+*/
+section {
+  padding-top: 6.8765rem;
+  padding-bottom: 6.8765rem; }
+
+.Hero-header {
+  background: #efefef; }
+
+/*# sourceMappingURL=theme.css.map */

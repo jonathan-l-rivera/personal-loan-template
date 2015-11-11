@@ -1,0 +1,38 @@
+
+.btn{
+	font-size: $base-line-height * 1* 1rem;
+	line-height:  $base-line-height * 2* 1rem;
+	display: inline-block;
+	background: $color-main;
+	color: #fff;
+	border-radius: $corner-radius;
+	text-decoration: none;
+	padding: 0 $base-line-height* 1rem;
+	vertical-align: middle;
+	margin-bottom: $base-line-height* 1rem;
+}
+
+.btn__icon{
+	
+}
+
+.btn--small{
+	font-size: $base-font-size * 1rem;
+	line-height:  ($base-font-size * 2) * 1rem;
+}
+
+.btn--large{
+	font-size: ($base-line-height * $font-ratio) * 1rem;
+	line-height:  ($base-line-height * 3) * 1rem;
+}
+
+.btn--color-alt{
+	background: $color-alt;
+}
+
+.btn--outline{
+	background: none;
+	border:3px solid $color-main;
+	color: $color-main;
+	
+}

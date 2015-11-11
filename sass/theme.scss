@@ -1,0 +1,46 @@
+@import 'components/__baseline.scss';
+@import 'components/__functions.scss';
+
+/* Colors:
+
+	* Always use HSLA. Ex. (255, 255, 255, 1);
+	* Keep the priorities and values in order.
+	* Colors main-
+	* Nuetrals, Whites, and Blacks Go
+
+Naming Conventions:
+	
+		
+*/
+
+$color-1: 		  red;		// Most used main brand color
+$color-1-alt: 	  red;			// Active, or hovered state color
+
+$color-2:     green;		// Complimentary brand color
+$color-2-alt: green;			// Active, or hovered state color
+
+$color-3:      green;		// Should rarely need to be used, but if you need something colorful, enjoy :D
+$color-3-alt:  green;			// Active, or hovered state color
+
+$color-nuetral-1: #666;  	// Lightest
+$color-nuetral-2: #999;
+$color-nuetral-3: #ddd;  	// Darkest
+
+$color-white-1: #efefef; 	// Lighest
+$color-white-2: #f9f9f9;
+$color-white-3: #fefefe; 	// Darkest
+
+$color-black-1: #444; 		// Lighest
+$color-black-2: #222;
+$color-black-3: #111; 		// Darkest
+
+$corner-radius: baseline(1);
+
+section{
+	padding-top: baseline(4);
+	padding-bottom: baseline(4);
+}
+
+.Hero-header{
+	background: $color-white-1;
+}

@@ -1,0 +1,45 @@
+/*  Round a number to the nearist multiple of another 
+*	
+*	@param : Base number to round
+* 	@param : Multiple to round to
+*
+*/
+
+@function roundUpToAny($n,$x:$base-line-height) {
+    @return round(($n+$x/2)/$x)*$x;
+}
+
+
+/*  Easily equate exponents 
+*	
+*	@param : Base
+* 	@param : Power
+*
+*/
+
+@function pow($number, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  }
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
+
+
+/*  Easily calculate multiples of the baseline. 
+*	
+*	@param : Multiplyer
+* 	@param : Baseline number
+*
+*/
+
+@function baseline($multiplier, $baseline : $base-line-height){
+	@return ($multiplier * $baseline) * 1rem;
+}
