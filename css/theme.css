@@ -1,3 +1,7 @@
+/* Max a number out by
+* 	@param : Must be an rem number
+*	@param : must be a PX number
+*/
 /*  Round a number to the nearist multiple of another 
 *	
 *	@param : Base number to round
@@ -16,22 +20,362 @@
 * 	@param : Baseline number
 *
 */
+/*  Easily calculate the various font sizes based on $base-font-size and $font-ratio. 
+*	
+*	@param : Multiplyer
+* 	@param : Base font size
+*	@param : Ratio to scale by
+*
+*/
 /* Colors:
 
-	* Always use HSLA. Ex. (255, 255, 255, 1);
-	* Keep the priorities and values in order.
-	* Colors main-
-	* Nuetrals, Whites, and Blacks Go
+	* Always use HSL. Example. ([0 - 360], [1-100], [1-100]);
+	* Keep the hierarchy and values in order.
+*/
+/* Mixins:
 
-Naming Conventions:
-	
+* Use mixins like so: @include MIXINNAME;	
 		
 */
-section {
-  padding-top: 6.8765rem;
-  padding-bottom: 6.8765rem; }
+/* Functions:
+*
+* 	fontsize([0-5]);
+*
+* 	baseline([INTIGER TO MULTIPLY BASELINE SIZE BY]); Use this for all padding and margins and sizing. Do not use a pixel value;
+*		
+*/
+/* ===========================================
+*	
+*	  1.0 Typography
+*	
+*  ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Open Sans, sans-serif;
+  color: #26140d; }
 
+p {
+  color: #807f7f;
+  font-family: Open Sans, sans-serif; }
+
+h4,
+h5,
+strong {
+  font-weight: bold;
+  color: #26140d; }
+
+.caption {
+  font-weight: 100; }
+
+@media (min-width: 800px) {
+  .spacer {
+    padding-left: 3.236rem;
+    border-left: 8.09rem solid #b1e7d8; } }
+/* ===========================================
+*	
+*	  2.0  GUI 
+*	
+*  ============================================ */
+a {
+  color: #2d4453; }
+
+.btn,
+.Field--short-form {
+  border-radius: 0.4045rem; }
+
+.btn {
+  background: #2d4453; }
+
+.btn--color-alt {
+  background: #54c9aa; }
+
+.btn--outline {
+  background: none;
+  border-color: #2d4453;
+  color: #2d4453; }
+
+.Field--short-form.is-active .fa {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2); }
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.25; }
+
+/* ===========================================
+*	
+*	  3.0  Modules 
+*	
+*  ============================================ */
+section {
+  padding-top: 4.854rem;
+  padding-bottom: 4.854rem; }
+
+.Primary-header {
+  background: #b1e7d8;
+  overflow: hidden; }
+  .Primary-header .logo {
+    width: 8.09rem;
+    height: 8.09rem;
+    padding: 0.809rem;
+    background: #2d4453; }
+  .Primary-header .logo__image {
+    max-height: 6.472rem; }
+
+.Primary-header__navigation {
+  max-width: 980px;
+  margin: 0 auto;
+  float: none;
+  line-height: 6.472rem;
+  text-align: center; }
+  .Primary-header__navigation a {
+    display: inline-block;
+    position: relative;
+    padding: 0.809rem 1.618rem;
+    line-height: 1.618rem;
+    border-radius: 0.4045rem;
+    text-transform: uppercase; }
+  .Primary-header__navigation .is-active a {
+    border: 1px solid #54c9aa; }
+    .Primary-header__navigation .is-active a:after {
+      content: ' ';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      border-left: 1px solid #54c9aa; }
+
+.blurb__icon {
+  position: relative;
+  border-color: #54c9aa;
+  border-width: 6px;
+  color: #2d4453; }
+  .blurb__icon:after {
+    content: ' ';
+    position: absolute;
+    left: calc(50% - 3px);
+    top: 100%;
+    height: 1.618rem;
+    border-left: 5px solid #54c9aa; }
+
+.blurb__title {
+  position: relative;
+  text-transform: uppercase; }
+  .blurb__title:after {
+    content: ' ';
+    position: absolute;
+    left: calc(50% - 3px);
+    top: 100%;
+    height: 6.472rem;
+    border-left: 6px solid #54c9aa; }
+
+.Primary-footer__navigation {
+  background: #1b2932;
+  color: #fbf6f4;
+  line-height: 4.854rem;
+  text-align: center; }
+  .Primary-footer__navigation li {
+    display: inline-block; }
+  .Primary-footer__navigation a {
+    padding: 0.809rem;
+    color: #fbf6f4; }
+
+/* ===========================================
+*	
+*	4.0  Sections 
+*	
+*  ============================================ */
+/*
+*	4.1 Hero Header
+*/
 .Hero-header {
-  background: #efefef; }
+  position: relative;
+  padding: 6.472rem 0;
+  color: #fbf6f4;
+  background: #2d4453;
+  background: -webkit-linear-gradient(45deg, #2d4453 0%, #1b2932 100%);
+  background: linear-gradient(45deg, #2d4453 0%, #1b2932 100%); }
+  .Hero-header:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/hero-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    z-index: 0;
+    opacity: 0.45; }
+  .Hero-header h1,
+  .Hero-header h2,
+  .Hero-header h3 {
+    color: inherit; }
+  .Hero-header .contain {
+    z-index: 1;
+    position: relative; }
+  .Hero-header .highlight {
+    color: #b1e7d8; }
+  .Hero-header p {
+    color: #fbf6f4; }
+
+.Cta-form {
+  -webkit-transition: all 0.2s;
+          transition: all 0.2s; }
+  .Cta-form .title--lines span:after,
+  .Cta-form .title--lines span:before {
+    border-color: #b1e7d8; }
+  @media (min-width: 1024px) {
+    .Cta-form.is-active {
+      z-index: 1000;
+      width: calc(100% + 3.236rem);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 1.618rem;
+      margin-top: -1.618rem;
+      margin-bottom: -1.618rem;
+      margin-left: -1.618rem;
+      background: rgba(27, 41, 50, 0.7);
+      border-radius: 0.4045rem; } }
+  .Cta-form .Field {
+    background: #fbf6f4;
+    color: #807f7f;
+    border: none; }
+  .Cta-form .fa {
+    border: 1px solid #fbf6f4;
+    background: #1b2932;
+    color: #54c9aa;
+    border-radius: 0.4045rem;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15);
+    height: 3.236rem;
+    -webkit-transition: all .2s;
+            transition: all .2s; }
+  .Cta-form .btn {
+    background: #54c9aa;
+    background: -webkit-linear-gradient(45deg, #54c9aa 0%, #41aa8e 100%);
+    background: linear-gradient(45deg, #54c9aa 0%, #41aa8e 100%); }
+
+.Cta-form--card {
+  width: calc(100% + 3.236rem);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 1.618rem;
+  margin-left: -1.618rem;
+  background: #2d4453;
+  border-radius: 0.4045rem; }
+  .Cta-form--card .title {
+    color: #fbf6f4; }
+
+/* 4.2 Varioius Sections
+*
+*/
+.Leader-section {
+  text-align: center; }
+  .Leader-section .caption {
+    margin-bottom: 3.236rem; }
+
+.Leader-section--about {
+  text-align: left; }
+  .Leader-section--about h1 {
+    text-align: center; }
+
+.blurb-row {
+  margin-top: 6.472rem; }
+
+.Image-text-section-1,
+.Image-text-section-2 {
+  padding: 0; }
+  .Image-text-section-1 .Image-text__text,
+  .Image-text-section-2 .Image-text__text {
+    background: #2d4453;
+    color: #fbf6f4; }
+  .Image-text-section-1 h1,
+  .Image-text-section-1 h2,
+  .Image-text-section-1 h3,
+  .Image-text-section-1 h5,
+  .Image-text-section-1 h6,
+  .Image-text-section-2 h1,
+  .Image-text-section-2 h2,
+  .Image-text-section-2 h3,
+  .Image-text-section-2 h5,
+  .Image-text-section-2 h6 {
+    color: #b1e7d8; }
+  .Image-text-section-1 p,
+  .Image-text-section-2 p {
+    color: #fbf6f4; }
+
+.Info-section {
+  background: #fbf6f4; }
+
+.How-section {
+  text-align: center;
+  background: #fbf6f4; }
+  .How-section .btn {
+    min-width: 33%;
+    margin: 1.618rem; }
+
+.Requirements-section {
+  border-top: 1px solid #b1e7d8; }
+
+.Contact-form .btn {
+  margin-top: 1.618rem; }
+
+/* 4.4 Generic
+*
+*/
+.Section--border {
+  border-bottom: 1px solid #b1e7d8; }
+
+.Section--dark {
+  background: #fbf6f4; }
+
+/* ===========================================
+*	
+*	  5.0  Breakpoints 
+*	
+*  ============================================ */
+@media (min-width: 1500px) {
+  body {
+    margin-left: 9.708rem; }
+
+  .Primary-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 9.708rem;
+    height: 100%;
+    overflow: scroll; }
+    .Primary-header .logo {
+      width: 9.708rem;
+      height: 9.708rem; }
+    .Primary-header .logo__image {
+      max-height: 8.09rem; }
+
+  .Primary-header__navigation {
+    clear: both;
+    line-height: 1.618rem; }
+    .Primary-header__navigation li {
+      display: block;
+      padding: 1.618rem 0.809rem; }
+    .Primary-header__navigation .is-active a:after {
+      content: ' ';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 100%;
+      height: 1px;
+      border: none;
+      border-top: 1px solid #54c9aa; } }
 
 /*# sourceMappingURL=theme.css.map */

@@ -1,0 +1,52 @@
+.Primary-header {
+	.logo {
+		width: baseline(10);
+		float: left;
+	}
+	
+	@extend .clearfix;
+}
+
+.Primary-header__navigation {
+		li{
+			display: inline-block;
+			padding: baseline(1/2);
+		}
+}
+
+.blurb {
+	text-align: center;	
+}
+
+.blurb__icon {
+	display: inline-block;
+	height: baseline(6);
+	width: baseline(6);
+	margin-bottom: baseline();
+	border: 1px solid $color-1;
+	color: $color-1;
+	line-height: baseline(6);
+	font-size: fontsize(4);
+	border-radius: 100%;
+	
+		.fa {
+			line-height: baseline(6);
+			display: block;	
+		}
+}
+
+
+.Image-text{
+}
+
+.Image-text__image{
+	padding: 0;
+}
+
+.Image-text__text{
+	padding: baseline(2);
+	
+	@media (max-width: 768px){
+		order: 1;
+	}
+}

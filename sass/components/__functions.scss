@@ -40,6 +40,22 @@
 *
 */
 
-@function baseline($multiplier, $baseline : $base-line-height){
+@function baseline($multiplier : 1, $baseline : $base-line-height){
 	@return ($multiplier * $baseline) * 1rem;
+}
+
+/*  Easily calculate the various font sizes based on $base-font-size and $font-ratio. 
+*	
+*	@param : Multiplyer
+* 	@param : Base font size
+*	@param : Ratio to scale by
+*
+*/
+
+@function fontsize($multiplier : 0, $fontsize : $base-font-size, $ratio : $font-ratio){
+	@return ($fontsize * pow($ratio, $multiplier)) * 1rem;
+}
+
+@function roundToDivisible($base, $divisible) {
+	@return round($base / $divisible) * $divisible;
 }

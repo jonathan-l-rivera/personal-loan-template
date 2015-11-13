@@ -1,46 +1,516 @@
 @import 'components/__baseline.scss';
 @import 'components/__functions.scss';
+@import 'components/__mixins.scss';
+
 
 /* Colors:
 
-	* Always use HSLA. Ex. (255, 255, 255, 1);
-	* Keep the priorities and values in order.
-	* Colors main-
-	* Nuetrals, Whites, and Blacks Go
+	* Always use HSL. Example. ([0 - 360], [1-100], [1-100]);
+	* Keep the hierarchy and values in order.
+*/
 
-Naming Conventions:
-	
+$color-1: 		  hsl(204, 30, 25);		// Most used main brand color
+$color-1-alt: 	  hsl(204, 30, 60);		// Active, or hovered state color
+$color-1-dark: 	  hsl(204, 30, 15);		
+
+
+$color-2:     	  hsl(164, 52, 56);		// Complimentary brand color
+$color-2-alt:     hsl(164, 52, 80);	
+$color-2-dark:    hsl(164, 45, 46);	
+
+
+$color-3:      	  green;				// Should rarely need to be used, but if you need something colorful 
+$color-3-alt:  	  green;				// Active, or hovered state color
+
+
+$color-nuetral-1: #666;  				// Lightest
+$color-nuetral-2: #999;
+$color-nuetral-3: #ddd;  				// Darkest
+
+
+$color-white-1:	  hsl(17, 50%, 97%); 	// Lighest
+$color-white-2:   hsl(17, 15%, 96%);
+$color-white-3:   hsl(17, 40%, 90%);	// Darkest
+
+
+$color-black-1:   hsl(17, 0.5%, 50%); 	// Lighest
+$color-black-2:   hsl(17, 5%, 30%);
+$color-black-3:   hsl(17, 50%, 10%); 	// Darkest
+
+
+/* Mixins:
+
+* Use mixins like so: @include MIXINNAME;	
 		
 */
 
-$color-1: 		  red;		// Most used main brand color
-$color-1-alt: 	  red;			// Active, or hovered state color
-
-$color-2:     green;		// Complimentary brand color
-$color-2-alt: green;			// Active, or hovered state color
-
-$color-3:      green;		// Should rarely need to be used, but if you need something colorful, enjoy :D
-$color-3-alt:  green;			// Active, or hovered state color
-
-$color-nuetral-1: #666;  	// Lightest
-$color-nuetral-2: #999;
-$color-nuetral-3: #ddd;  	// Darkest
-
-$color-white-1: #efefef; 	// Lighest
-$color-white-2: #f9f9f9;
-$color-white-3: #fefefe; 	// Darkest
-
-$color-black-1: #444; 		// Lighest
-$color-black-2: #222;
-$color-black-3: #111; 		// Darkest
-
-$corner-radius: baseline(1);
-
-section{
-	padding-top: baseline(4);
-	padding-bottom: baseline(4);
+@mixin corner-radius{
+	border-radius:  baseline(1/4);
 }
 
+@mixin border-1 {
+	border: 2px solid $color-white-3;
+}
+
+@mixin font-stack-heading {
+	font-family: Open Sans, sans-serif;
+}
+
+@mixin font-stack-body {
+	font-family:  Open Sans, sans-serif;
+}
+
+
+/* Functions:
+*
+* 	fontsize([0-5]);
+*
+* 	baseline([INTIGER TO MULTIPLY BASELINE SIZE BY]); Use this for all padding and margins and sizing. Do not use a pixel value;
+*		
+*/
+
+
+/* ===========================================
+*	
+*	  1.0 Typography
+*	
+*  ============================================ */
+
+html{
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	@include font-stack-heading;
+	
+	color: $color-black-3;
+}
+
+
+p{
+	color: $color-black-1;
+	
+	@include font-stack-body;
+}
+
+h4,
+h5,
+strong{
+	font-weight: bold;
+	color: $color-black-3;
+}
+
+.caption{
+	font-weight: 100;
+}
+
+@media (min-width: 800px) {
+	.spacer{
+		padding-left: baseline(2);
+		border-left: baseline(5) solid $color-2-alt;
+	}
+}
+
+/* ===========================================
+*	
+*	  2.0  GUI 
+*	
+*  ============================================ */
+
+a{
+	color: $color-1;
+}
+
+.btn,
+.Field--short-form { // Border Radius for GUI elements
+	@include corner-radius;
+}
+
+
+.btn{
+	background: $color-1;
+}
+
+.btn--color-alt{
+	background: $color-2;
+}
+
+.btn--outline{
+	background: none;
+	border-color: $color-1;
+	color: $color-1;
+}
+
+
+.Field--short-form.is-active{
+	.fa{
+		transform: scale(1.2);
+	}
+}
+
+.overlay{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	opacity: 0.25;
+}
+
+/* ===========================================
+*	
+*	  3.0  Modules 
+*	
+*  ============================================ */
+
+section{
+	padding-top: baseline(3);
+	padding-bottom: baseline(3);
+}
+
+
+.Primary-header{
+	background: $color-2-alt;
+	overflow: hidden;
+	
+	.logo{
+		width:  baseline(5);
+		height: baseline(5);
+		padding: baseline(1/2);
+		background: $color-1;
+	}	
+		
+	.logo__image{
+		max-height: baseline(4);
+	}
+
+}
+
+	.Primary-header__navigation{
+		max-width: $sitewidth;
+		margin: 0 auto;
+		float: none;
+		line-height: baseline(4);
+		text-align: center;
+		
+			a {
+				display: inline-block;
+				position: relative;
+				padding: baseline(1/2) baseline(1);
+				line-height: baseline(1);
+				@include corner-radius;
+				text-transform: uppercase;
+			}
+			
+			.is-active a {
+				border: 1px solid $color-2;
+				
+				&:after {
+					content: ' ';
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					width: 1px;
+					height: 100%;
+					border-left: 1px solid $color-2;
+				}
+			}
+	}
+
+.blurb__icon {
+	position: relative;
+	border-color: $color-2;
+	border-width: 6px;
+	color: $color-1;
+	
+	&:after {
+		content: ' ';
+		position: absolute;
+		left: calc(50% - 3px);
+		top: 100%;
+		height: baseline();
+		border-left: 5px solid $color-2;
+	}
+}
+
+	.blurb__title {
+			position: relative;
+			text-transform: uppercase;
+			
+			&:after {
+				content: ' ';
+				position: absolute;
+				left: calc(50% - 3px);
+				top: 100%;
+				height: baseline(4);
+				border-left: 6px solid $color-2;
+			}
+	}
+
+
+.Primary-footer__navigation {
+	background: $color-1-dark;
+	color: $color-white-1;
+	line-height: baseline(3);
+	text-align: center;
+	
+		li {
+			display: inline-block;
+		}
+		
+		a{
+			padding: baseline(1/2);
+			color: $color-white-1;
+		}
+}
+
+
+/* ===========================================
+*	
+*	4.0  Sections 
+*	
+*  ============================================ */
+
+/*
+*	4.1 Hero Header
+*/
+
 .Hero-header{
+	position: relative;
+	padding:  baseline(4) 0;
+	color: $color-white-1;
+	
+	@include gradient-bottom-left($color-1, $color-1-dark);
+		&:before{
+			content: ' ';
+			position: absolute;
+			left: 	0;
+			top: 	0;
+			width: 	100%;
+			height: 100%;
+			background-image: url(../images/hero-bg.jpg); // Main Background image for hero header
+			background-position: center center;
+			background-size: cover;
+			opacity: 1;
+			z-index: 0;
+			opacity: 0.45;
+		}
+		
+		h1,
+		h2,
+		h3{
+			color: inherit;
+		}
+		
+		.contain{
+			z-index: 1;
+			position: relative;
+		}
+		
+		.highlight {
+			color: $color-2-alt;
+		}
+		
+		p{
+			color: $color-white-1;
+		}
+		
+}
+
+
+.Cta-form{
+	transition: all 0.2s;
+	.title--lines span:after,
+	.title--lines span:before{
+		border-color: $color-2-alt;
+	}
+	
+	@include desktop {
+		
+		&.is-active{
+			z-index: 1000;
+			width: calc(100% + #{baseline(2)});
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			padding: baseline(1);
+			margin-top: baseline(-1);
+			margin-bottom: baseline(-1);
+			margin-left: baseline(-1);
+			background: rgba($color-1-dark, 0.7);
+			@include corner-radius;
+		}
+		
+	}
+	
+		.Field{
+			background: $color-white-1;
+			color: $color-black-1;
+			border: none;
+		}
+		
+		.fa{
+			border: 1px solid $color-white-1;
+			background: $color-1-dark;
+			color: $color-2;
+			@include corner-radius;
+			box-shadow: 5px 0 5px hsla(0, 0, 0, 0.15);
+			height: baseline(2);
+			transition: all .2s;
+		}
+		
+		.btn{
+			@include gradient-bottom-left($color-2, $color-2-dark);
+		}
+}
+
+.Cta-form--card{
+	width: calc(100% + #{baseline(2)});
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	padding: baseline(1);
+	margin-left: baseline(-1);
+	background: $color-1;
+	@include corner-radius;
+	
+		.title{
+			color: $color-white-1;
+		}
+}
+
+
+/* 4.2 Varioius Sections
+*
+*/
+
+.Leader-section{
+	text-align: center;
+	
+	.caption{
+		margin-bottom: baseline(2);
+	}
+}
+
+.Leader-section--about{
+	text-align: left;
+		
+		h1{
+			text-align: center;
+		}
+}
+
+.blurb-row{
+	margin-top: baseline(4);
+}
+
+
+.Image-text-section-1,
+.Image-text-section-2{
+	padding: 0;
+		
+		.Image-text__text{
+			background: $color-1;
+			color: $color-white-1;
+		}
+		h1,
+		h2,
+		h3,
+		h5,
+		h6{
+			color: $color-2-alt;
+		}
+		p{
+			color: $color-white-1;
+		}
+}
+
+.Info-section{
 	background: $color-white-1;
+}
+.How-section{
+	text-align: center;
+	background: $color-white-1;
+		
+		.btn{
+			min-width: 33%;
+			margin: baseline(1);
+		}
+}
+
+.Requirements-section{
+	border-top: 1px solid $color-2-alt;
+}
+
+.Contact-form{
+	.btn{
+		margin-top: baseline(1);
+	}
+}
+
+/* 4.4 Generic
+*
+*/
+
+.Section--border{
+	border-bottom: 1px solid $color-2-alt;
+}
+
+.Section--dark{
+	background: $color-white-1;
+}
+
+/* ===========================================
+*	
+*	  5.0  Breakpoints 
+*	
+*  ============================================ */
+
+
+@media (min-width : 1500px){
+	body{
+		margin-left: baseline(6);
+	}
+	.Primary-header{
+		position: fixed;
+		left: 0;
+		top:0;
+		width: baseline(6);
+		height: 100%;
+		overflow: scroll;
+		
+			.logo{
+				width:  baseline(6);
+				height: baseline(6);
+			}	
+				
+			.logo__image{
+				max-height: baseline(5);
+			}
+	}
+	
+	.Primary-header__navigation { 
+		clear: both;
+		line-height: baseline(1);
+		
+		li{
+			display: block;
+			padding: baseline(1) baseline(1/2);
+		}
+		
+		.is-active a {
+			&:after {
+				content: ' ';
+				position: absolute;
+				top: 50%;
+				left: 100%;
+				width: 100%;
+				height: 1px;
+				border: none;
+				border-top: 1px solid $color-2;
+			}
+		}
+	}
 }

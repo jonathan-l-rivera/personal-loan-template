@@ -1,7 +1,12 @@
 /* Base Fonts */
 
-$font-stack: Open Sans, sans-serif;
+@mixin font-stack-heading {
+	font-family:  Open Sans, sans-serif;
+}
 
+@mixin font-stack-body {
+	font-family:  Open Sans, sans-serif;
+}
 
 /* Font Size Varients */
 
@@ -16,54 +21,110 @@ $h4-font-size: $base-font-size;
 
 html{
 	font-size: 1em;
-	font-family: $font-stack;
+	@include font-stack-body;
 }
 
 h1{
 	font-size: $h1-font-size * 1rem;
 	line-height: roundUpToAny($h1-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(1);
+	@include font-stack-heading;
 }
 
 h2{
 	font-size: $h2-font-size * 1rem;
 	line-height: roundUpToAny($h2-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(1);
+	@include font-stack-heading;
 }
 
 h3{
 	font-size: $h3-font-size * 1rem;
 	line-height: roundUpToAny($h3-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(1);
+	@include font-stack-heading;
 }
 
 h4{
 	font-size: $h4-font-size * 1rem;
 	line-height: roundUpToAny($h4-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(1);
+	@include font-stack-heading;
 }
 
+body {
+	
+	font-size: $base-font-size * 1rem;
+	line-height: roundUpToAny($base-font-size) * 1rem;
+	
+}
 h5,
 h6,
 p{
 	font-size: $base-font-size * 1rem;
 	line-height: roundUpToAny($base-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(1);
 }
 
+
+/* Stylized Type Addons */
+
 .caption{
 	font-size: $h3-font-size * 1rem;
-	line-height: $h2-font-size * 1rem;	
+	line-height: $h2-font-size * 1rem;
+}
+
+.sub-title{
+	margin-top: baseline(-1/2);
+	margin-bottom: baseline(1.5);
 }
 
 .mega{
 	font-size: $mega-font-size * 1rem;
 	line-height: roundUpToAny($mega-font-size) * 1rem;
-	font-family: $font-stack;
 	margin-bottom: baseline(2);
+}
+
+.title--lines{
+	text-align: center;
+	overflow: hidden;
+		
+		span{
+			position: relative;
+		}
+	
+		span:before{
+			content: ' ';
+			height: 0;
+			width: 300%;
+			position: absolute;
+			border-bottom: 1px solid $color-white-1;
+			top: 50%;
+			left: calc(-300% - #{baseline(1/2)});
+		}
+		
+		span:after{
+			content: ' ';
+			height: 0;
+			width: 300%;
+			position: absolute;
+			border-bottom: 1px solid $color-white-1;
+			top: 50%;
+			right: calc(-300% - #{baseline(1/2)});
+		}
+}
+
+
+
+@media (max-width: 958px){
+	html{
+		font-size: 0.85em;
+	}
+}
+
+
+@media (max-width: 768px){
+	html{
+		font-size: 0.75em;
+	}
 }

@@ -1,0 +1,38 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width} -1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin gradient-top-left($color1, $color2, $deg : '-45deg'){
+	background: $color1;
+	background: -moz-linear-gradient(-45deg,  $color1 0%, $color2 100%);
+	background: -webkit-linear-gradient(-45deg,  $color1 0%, $color2 100%);
+	background: linear-gradient(135deg,   $color1 0%,$color2 100%);
+}
+
+@mixin gradient-bottom-left($color1, $color2, $deg : '45deg'){
+	background: $color1;
+	background: -moz-linear-gradient(45deg,  $color1 0%, $color2 100%);
+	background: -webkit-linear-gradient(45deg,  $color1 0%, $color2 100%);
+	background: linear-gradient(45deg,   $color1 0%,$color2 100%);
+}
+
+@mixin corner-radius {
+	border-radius:  baseline(1/4);
+}

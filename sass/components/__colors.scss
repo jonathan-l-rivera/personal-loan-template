@@ -1,12 +1,20 @@
-$color-main: red;
-$color-alt: green;
+$color-1: 		  red;		// Most used main brand color
+$color-1-alt: 	  red;			// Active, or hovered state color
 
-$color-nuetral-1: #666;
+$color-2:     green;		// Complimentary brand color
+$color-2-alt: green;			// Active, or hovered state color
+
+$color-3:      green;		// Should rarely need to be used, but if you need something colorful, enjoy :D
+$color-3-alt:  green;			// Active, or hovered state color
+
+$color-nuetral-1: #666;  	// Lightest
 $color-nuetral-2: #999;
-$color-nuetral-3: #ddd;
+$color-nuetral-3: #ddd;  	// Darkest
 
-$color-white-1: #efefef;
+$color-white-1: #efefef; 	// Lighest
 $color-white-2: #f9f9f9;
-$color-white-3: #fefefe;
+$color-white-3: #fefefe; 	// Darkest
 
-$corner-radius: #{$base-line-height}rem;
+$color-black-1: #444; 		// Lighest
+$color-black-2: #222;
+$color-black-3: #111; 		// Darkest

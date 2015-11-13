@@ -14,9 +14,30 @@ $ratio-major-tenth: 8/3;
 $ratio-major-twelfth: 3;
 $ratio-double-octave: 4;
 
-$default-font-size: 17;
+$default-font-size: 16;
 $default-line-height: $ratio-golden;
 
 $base-font-size: $default-font-size/16;
 $base-line-height: $base-font-size * $default-line-height;
 $font-ratio: $ratio-prefect-fifth;
+
+
+/* Max a number out by
+* 	@param : Must be an rem number
+*	@param : must be a PX number
+*/
+
+@function max-number($checknum, $max){
+	$checknum : $checknum * 16;
+	@if $checknum > $max {
+		@return $max * 1px;
+		
+	}@else {
+		
+		@return ($checknum/16) * 1rem;
+		
+	}
+}
+
+
+$sitewidth  : max-number($base-line-height * 46, 980); 
