@@ -3,46 +3,62 @@ a{
 	text-decoration: none;
 }
 
-/* Buttons:
-	
-*/
+/* Buttons: */
 
+button,
+input[type='submit'] {
+	border: none;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+      
+
+}
 
 .btn{
+	display: inline-block;
+	position: relative;
+	height: baseline(2);
+	margin-bottom: baseline(1);
+	padding: 0 baseline(2);
+	background: $color-1;
 	font-size: fontsize();
 	line-height:  baseline(2);
-	display: inline-block;
-	background: $color-1;
 	color: #fff;
 	text-decoration: none;
-	padding: 0 baseline(2);
 	vertical-align: middle;
-	margin-bottom: baseline(1);
-	height: baseline(2);
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+            appearance: none;
 	
 	@include corner-radius;
+		
+		.fa{
+			line-height: inherit;
+			
+		}
 }
 
-.btn__icon{
+.btn__icon {
 	
 }
 
-.btn--small{
+.btn--small {
 	font-size: fontsize();
 	line-height:  baseline(1);
 }
 
-.btn--large{
+.btn--large {
 	font-size: fontsize(1);
 	line-height:  baseline(3);
 	height: baseline(3);
 }
 
-.btn--color-alt{
+.btn--color-alt {
 	background: $color-2;
 }
 
-.btn--outline{
+.btn--outline {
 	background: none;
 	border:3px solid $color-1;
 	color: $color-1;
@@ -51,13 +67,13 @@ a{
 /* Form Elements: */
 
 
-label{
+label {
 	font-size: inherit;
 }
 
 textarea,
 select,
-input{
+input {
 	margin: 0;
 	padding: 0 baseline(0.5);
 	border: none;
@@ -67,7 +83,7 @@ input{
 	color: inherit;
 }
 
-select{
+select {
 	border: none;
 	background: #fff;
 	line-height: baseline(1);
@@ -77,14 +93,40 @@ select{
 	box-shadow: 		none !important;
 }
 
+/*** custom checkboxes ***/
 
-/* Form Elements: Short Form */
 
-.Field{
+input[type=checkbox] { 
+	display:none; 
+} /* to hide the checkbox itself */
+
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  height: baseline(1);
+  width: baseline(1);
+  font-size: baseline(1);
+  margin: 0 baseline(1/4) 0 0;
+  text-align: center;
+  vertical-align: middle;
+  
+  @include corner-radius;
+
+}
+
+input[type=checkbox] + label:before {
+	content: "\f096" 
+} /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { 
+	content: "\f14a";
+} /* checked icon */
+
+.Field {
 	position: relative;
 }
 
-.Field--short-form{
+.Field--short-form {
 	
 	height: baseline(2);
 	margin-bottom: baseline();

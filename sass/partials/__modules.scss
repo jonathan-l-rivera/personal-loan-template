@@ -1,3 +1,5 @@
+/* 1.0 Primary Header */
+
 .Primary-header {
 	.logo {
 		width: baseline(10);
@@ -14,6 +16,35 @@
 		}
 }
 
+
+
+/* 2.0 Blurb */
+
+
+.Blurbs{
+	@include phone-tall{
+		
+		.col--1-4{
+			width: 50%;
+		}
+		
+		.col--1-3{
+			width: 33.33%;
+		}
+	}
+	
+	@include phone-wide{
+		.col--1-4{
+			width: 25%;
+		}
+		
+		.col--1-3{
+			width: 33.33%;
+		}
+	}
+}
+
+
 .blurb {
 	text-align: center;	
 }
@@ -28,12 +59,26 @@
 	line-height: baseline(6);
 	font-size: fontsize(4);
 	border-radius: 100%;
-	
 		.fa {
 			line-height: baseline(6);
 			display: block;	
 		}
+		
+		@include phone{
+			height: baseline(4);
+			width: baseline(4);
+			
+			.fa {
+				line-height: baseline(4);
+				font-size: fontsize(2);
+				display: block;	
+			}
+		}
+		
 }
+
+
+/* 3.0 Two Column Image and Text */
 
 
 .Image-text{
@@ -41,12 +86,137 @@
 
 .Image-text__image{
 	padding: 0;
+	position: relative;
+	overflow: hidden;
+	
+	
+	@include phone-wide{
+		img{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: none;
+			height: 130%;
+			width: auto;
+			transform: translate3d(-50%, -50%, 0);
+		}
+	}
 }
 
 .Image-text__text{
 	padding: baseline(2);
 	
-	@media (max-width: 768px){
+	@include phone-tall{
 		order: 1;
+	}
+}
+
+
+/* 4.0 Call to Action Form */
+
+
+.Cta-form{
+	transition: all 0.2s;
+	.title--lines span:after,
+	.title--lines span:before{
+		border-color: $color-1-alt;
+	}
+	
+		.Field{
+			background: $color-white-1;
+			color: $color-black-1;
+			border: none;
+						
+				.fa{
+					border: 1px solid $color-white-1;
+					background: $color-2-dark;
+					color: $color-1;
+					@include corner-radius;
+					box-shadow: 5px 0 5px hsla(0, 0, 0, 0.15);
+					height: baseline(2);
+					transition: all .2s;
+				}
+		}
+		
+		.Field--optin{
+			background: none;
+		}
+}
+
+.Cta-form--card{
+	width: calc(100% + #{baseline(2)});
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	padding: baseline(1);
+	margin-left: baseline(-1);
+	background: $color-2;
+	@include corner-radius;
+	
+		.title{
+			color: $color-white-1;
+		}
+}
+
+
+/* 5.0 Modal Box */
+
+.Modal{
+	display: none;
+	position: fixed;
+	overflow: scroll;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba($color-2-dark, 0.98);
+	z-index: 9000;
+	
+	@include desktop{		
+		top:10%;
+		left: 50%;
+		width: 80%;
+		height: auto;
+		max-width: 600px;
+		max-height: 80%;
+		transform: translateX(-50%);
+		
+		@include corner-radius;
+	}
+}
+
+.Modal__title{
+	margin: 0;
+	padding: 0 baseline();
+	border-bottom: 1px solid $color-1;
+	line-height: baseline(3);
+	text-align: center;
+	color: $color-white-1;
+}
+
+.Modal__content{
+	padding: baseline(2);
+	
+		h1,h2,h3,h4,h5,h6,p{
+			color: $color-white-1;
+		}
+}
+
+.Modal__close{
+	position: fixed;
+	top:0;
+	right: 0;
+	height: baseline(3);
+	width: baseline(3);
+	background: $color-1;
+	color: $color-white-1;
+	text-align: center;
+	line-height: baseline(3);
+	
+	@include desktop{
+		
+		@include corner-radius;
+		
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 }

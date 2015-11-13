@@ -116,15 +116,21 @@ p{
 
 
 
-@media (max-width: 958px){
+@include tablet{
 	html{
 		font-size: 0.85em;
 	}
 }
 
 
-@media (max-width: 768px){
+@include phone-wide{
 	html{
-		font-size: 0.75em;
+		font-size: 0.7em;
+	}
+}
+
+@include phone-tall{
+	html{
+		font-size: 0.6em;
 	}
 }

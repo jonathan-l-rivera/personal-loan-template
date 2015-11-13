@@ -1,10 +1,31 @@
+
+/* Mixins:
+
+* Use mixins like so: @include MIXINNAME;	
+		
+*/
+
+$phone-height: 568px;
+$phone-width: 320px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
-@mixin tablet {
-  @media (max-width: #{$tablet-width} -1px) {
-    @content;
-  }
+@mixin phone {
+	@media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin phone-tall {
+	@media (min-width: #{$phone-width}) and (max-width: #{$phone-height - 1px}) {
+		@content;
+	}
+}
+
+@mixin phone-wide {
+	@media (min-width: #{$phone-height}) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
 }
 
 @mixin tablet {
@@ -12,6 +33,13 @@ $desktop-width: 1024px;
     @content;
   }
 }
+
+@mixin tablet-up {
+  @media (min-width: #{$phone-height}) {
+    @content;
+  }
+}
+
 
 @mixin desktop {
   @media (min-width: #{$desktop-width}) {
@@ -33,6 +61,26 @@ $desktop-width: 1024px;
 	background: linear-gradient(45deg,   $color1 0%,$color2 100%);
 }
 
-@mixin corner-radius {
+@mixin gradient-vertical($color1, $color2, $deg : '45deg'){
+	background: $color1;
+	background: -moz-linear-gradient(0deg,  $color1 0%, $color2 100%);
+	background: -webkit-linear-gradient(0deg,  $color1 0%, $color2 100%);
+	background: linear-gradient(0deg,   $color1 0%,$color2 100%);
+}
+
+
+@mixin corner-radius{
 	border-radius:  baseline(1/4);
+}
+
+@mixin border-1 {
+	border: 2px solid $color-white-3;
+}
+
+@mixin font-stack-heading {
+	font-family: Open Sans, sans-serif;
+}
+
+@mixin font-stack-body {
+	font-family:  Open Sans, sans-serif;
 }

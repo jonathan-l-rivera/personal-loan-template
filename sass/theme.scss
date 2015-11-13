@@ -1,64 +1,7 @@
 @import 'components/__baseline.scss';
 @import 'components/__functions.scss';
+@import 'components/__colors.scss';
 @import 'components/__mixins.scss';
-
-
-/* Colors:
-
-	* Always use HSL. Example. ([0 - 360], [1-100], [1-100]);
-	* Keep the hierarchy and values in order.
-*/
-
-$color-1: 		  hsl(204, 30, 25);		// Most used main brand color
-$color-1-alt: 	  hsl(204, 30, 60);		// Active, or hovered state color
-$color-1-dark: 	  hsl(204, 30, 15);		
-
-
-$color-2:     	  hsl(164, 52, 56);		// Complimentary brand color
-$color-2-alt:     hsl(164, 52, 80);	
-$color-2-dark:    hsl(164, 45, 46);	
-
-
-$color-3:      	  green;				// Should rarely need to be used, but if you need something colorful 
-$color-3-alt:  	  green;				// Active, or hovered state color
-
-
-$color-nuetral-1: #666;  				// Lightest
-$color-nuetral-2: #999;
-$color-nuetral-3: #ddd;  				// Darkest
-
-
-$color-white-1:	  hsl(17, 50%, 97%); 	// Lighest
-$color-white-2:   hsl(17, 15%, 96%);
-$color-white-3:   hsl(17, 40%, 90%);	// Darkest
-
-
-$color-black-1:   hsl(17, 0.5%, 50%); 	// Lighest
-$color-black-2:   hsl(17, 5%, 30%);
-$color-black-3:   hsl(17, 50%, 10%); 	// Darkest
-
-
-/* Mixins:
-
-* Use mixins like so: @include MIXINNAME;	
-		
-*/
-
-@mixin corner-radius{
-	border-radius:  baseline(1/4);
-}
-
-@mixin border-1 {
-	border: 2px solid $color-white-3;
-}
-
-@mixin font-stack-heading {
-	font-family: Open Sans, sans-serif;
-}
-
-@mixin font-stack-body {
-	font-family:  Open Sans, sans-serif;
-}
 
 
 /* Functions:
@@ -109,9 +52,9 @@ strong{
 }
 
 @media (min-width: 800px) {
-	.spacer{
+	.text-spacer{
 		padding-left: baseline(2);
-		border-left: baseline(5) solid $color-2-alt;
+		border-left: baseline(5) solid $color-1-alt;
 	}
 }
 
@@ -121,8 +64,9 @@ strong{
 *	
 *  ============================================ */
 
+
 a{
-	color: $color-1;
+	color: $color-1-dark;
 }
 
 .btn,
@@ -132,19 +76,88 @@ a{
 
 
 .btn{
+	transition: all .3s;
 	background: $color-1;
+	
+	&:hover{
+		background: darken($color-1-alt, 17%);
+		transform: translateY(baseline(-1/6));
+		box-shadow: 0 baseline(1/6) 5px hsla(0,0,0,.15);
+	}
+	
+		.fa:before{
+			display: inline-block;
+			position: absolute;
+			top:50%;
+			right: baseline(1);
+			height: baseline(1.5);
+			width: baseline(1.5);
+			background: $color-2-dark;
+			border-radius: 100%;
+			text-align: center;
+			line-height: baseline(1.5);
+			transform: translateY(-50%);
+			
+		}
 }
 
 .btn--color-alt{
 	background: $color-2;
+	
+	&:hover{
+		background: darken($color-2-alt, 15%);
+	}
 }
 
 .btn--outline{
 	background: none;
-	border-color: $color-1;
-	color: $color-1;
+	border-color: $color-nuetral-1;
+	color: $color-black-1;
+	
+	&:hover{
+		background: $color-2;
+		color: $color-white-1;
+		border-color: $color-2;
+	}
 }
 
+.btn--submit{
+	padding: 0 baseline(4);
+	font-weight: bold;
+	cursor: pointer;
+	
+	@include gradient-bottom-left($color-2-alt, mix($color-1, $color-2-alt));
+	
+		&:hover{
+			@include gradient-top-left(mix($color-1, $color-2-alt), $color-2-alt);
+				
+				&:after,
+				&:before{
+					width: 0;
+				}
+
+		}
+		
+		&:before{
+			content: ' ';
+			position: absolute;
+			width: 500%;
+			top: 50%;
+			right: calc(100% + 5px);
+			border-top: 1px solid $color-1-alt;
+			transition: all 0.1s;
+		}
+		
+		&:after{
+			content: ' ';
+			position: absolute;
+			width: 500%;
+			top: 50%;
+			left: calc(100% + 5px);
+			border-top: 1px solid $color-1-alt;
+			transition: all 0.1s;
+		}
+}
 
 .Field--short-form.is-active{
 	.fa{
@@ -154,13 +167,16 @@ a{
 
 .overlay{
 	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	opacity: 0.25;
+	
+		@include desktop {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			opacity: 0.8;
+		}
 }
 
 /* ===========================================
@@ -169,21 +185,16 @@ a{
 *	
 *  ============================================ */
 
-section{
-	padding-top: baseline(3);
-	padding-bottom: baseline(3);
-}
-
 
 .Primary-header{
-	background: $color-2-alt;
+	background: $color-1-alt;
 	overflow: hidden;
 	
 	.logo{
 		width:  baseline(5);
 		height: baseline(5);
 		padding: baseline(1/2);
-		background: $color-1;
+		background: $color-2;
 	}	
 		
 	.logo__image{
@@ -204,12 +215,19 @@ section{
 				position: relative;
 				padding: baseline(1/2) baseline(1);
 				line-height: baseline(1);
-				@include corner-radius;
 				text-transform: uppercase;
+				transition: all .3s;
+				border: 1px solid $color-1-alt;
+				
+				@include corner-radius;
+				
+				&:hover{
+					border: 1px solid $color-1;
+				}
 			}
 			
 			.is-active a {
-				border: 1px solid $color-2;
+				border: 1px solid $color-1;
 				
 				&:after {
 					content: ' ';
@@ -218,44 +236,55 @@ section{
 					left: 50%;
 					width: 1px;
 					height: 100%;
-					border-left: 1px solid $color-2;
+					border-left: 1px solid $color-1;
 				}
 			}
+			
+			
 	}
+
+
+.blurb{
+	position: relative;
+	z-index: -1;
+	&.is-out-viewport{
+		transform: translateY(130%);
+	}
+}
 
 .blurb__icon {
 	position: relative;
-	border-color: $color-2;
-	border-width: 6px;
-	color: $color-1;
+	border-color: $color-1;
+	border-width: 1px;
+	color: $color-2;
 	
 	&:after {
 		content: ' ';
 		position: absolute;
-		left: calc(50% - 3px);
+		left: calc(50% - 1px);
 		top: 100%;
 		height: baseline();
-		border-left: 5px solid $color-2;
+		border-left: 1px solid $color-1;
 	}
 }
-
-	.blurb__title {
-			position: relative;
-			text-transform: uppercase;
-			
-			&:after {
-				content: ' ';
-				position: absolute;
-				left: calc(50% - 3px);
-				top: 100%;
-				height: baseline(4);
-				border-left: 6px solid $color-2;
-			}
+	
+	@include desktop {
+		.blurb__title {
+				position: relative;
+				text-transform: uppercase;
+				&:after {
+					content: ' ';
+					position: absolute;
+					left: calc(50% - 1px);
+					top: 100%;
+					height: baseline(4);
+					border-left: 1px solid $color-1;
+				}
+		}
 	}
 
-
 .Primary-footer__navigation {
-	background: $color-1-dark;
+	background: $color-2-dark;
 	color: $color-white-1;
 	line-height: baseline(3);
 	text-align: center;
@@ -271,11 +300,54 @@ section{
 }
 
 
+.Cta-form{
+	text-align: center;
+	width: calc(100% + #{baseline(2)});
+	padding: baseline(1);
+	margin-top: baseline(-1);
+	margin-bottom: baseline(-1);
+	margin-left: baseline(-1);
+		
+		@include desktop {
+			
+			&.is-active{
+				z-index: 1000;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+				background: rgba($color-2-dark, 0.95);
+				@include corner-radius;
+				
+				.btn:after,
+				.btn:before{
+					width: 0;
+				}
+			}
+			
+		}
+	
+		.Field--optin{
+			text-align: left;
+			font-size: 12px;
+			color: $color-white-1;
+			margin-bottom: baseline();
+		}
+}
+
+.Modal{
+	box-shadow: 0 0 baseline(1/2) hsla(0,0,0,.15);
+}
+
 /* ===========================================
 *	
 *	4.0  Sections 
 *	
 *  ============================================ */
+
+
+section{
+	padding-top: baseline(3);
+	padding-bottom: baseline(3);
+}
+
 
 /*
 *	4.1 Hero Header
@@ -285,8 +357,9 @@ section{
 	position: relative;
 	padding:  baseline(4) 0;
 	color: $color-white-1;
+	overflow: hidden;
 	
-	@include gradient-bottom-left($color-1, $color-1-dark);
+	@include gradient-bottom-left($color-2, $color-2-dark);
 		&:before{
 			content: ' ';
 			position: absolute;
@@ -314,7 +387,7 @@ section{
 		}
 		
 		.highlight {
-			color: $color-2-alt;
+			color: $color-1-alt;
 		}
 		
 		p{
@@ -324,65 +397,7 @@ section{
 }
 
 
-.Cta-form{
-	transition: all 0.2s;
-	.title--lines span:after,
-	.title--lines span:before{
-		border-color: $color-2-alt;
-	}
-	
-	@include desktop {
-		
-		&.is-active{
-			z-index: 1000;
-			width: calc(100% + #{baseline(2)});
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-			padding: baseline(1);
-			margin-top: baseline(-1);
-			margin-bottom: baseline(-1);
-			margin-left: baseline(-1);
-			background: rgba($color-1-dark, 0.7);
-			@include corner-radius;
-		}
-		
-	}
-	
-		.Field{
-			background: $color-white-1;
-			color: $color-black-1;
-			border: none;
-		}
-		
-		.fa{
-			border: 1px solid $color-white-1;
-			background: $color-1-dark;
-			color: $color-2;
-			@include corner-radius;
-			box-shadow: 5px 0 5px hsla(0, 0, 0, 0.15);
-			height: baseline(2);
-			transition: all .2s;
-		}
-		
-		.btn{
-			@include gradient-bottom-left($color-2, $color-2-dark);
-		}
-}
-
-.Cta-form--card{
-	width: calc(100% + #{baseline(2)});
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-	padding: baseline(1);
-	margin-left: baseline(-1);
-	background: $color-1;
-	@include corner-radius;
-	
-		.title{
-			color: $color-white-1;
-		}
-}
-
-
-/* 4.2 Varioius Sections
+/* 4.2 Page Specific Sections
 *
 */
 
@@ -402,6 +417,7 @@ section{
 		}
 }
 
+
 .blurb-row{
 	margin-top: baseline(4);
 }
@@ -412,7 +428,7 @@ section{
 	padding: 0;
 		
 		.Image-text__text{
-			background: $color-1;
+			background: $color-2;
 			color: $color-white-1;
 		}
 		h1,
@@ -420,7 +436,7 @@ section{
 		h3,
 		h5,
 		h6{
-			color: $color-2-alt;
+			color: $color-1-alt;
 		}
 		p{
 			color: $color-white-1;
@@ -441,7 +457,7 @@ section{
 }
 
 .Requirements-section{
-	border-top: 1px solid $color-2-alt;
+	border-top: 1px solid $color-1-alt;
 }
 
 .Contact-form{
@@ -450,12 +466,18 @@ section{
 	}
 }
 
+.Disclaimer-section{
+	p{
+		font-size: 12px;
+	}
+}
+
 /* 4.4 Generic
 *
 */
 
 .Section--border{
-	border-bottom: 1px solid $color-2-alt;
+	border-bottom: 1px solid $color-1-alt;
 }
 
 .Section--dark{
@@ -469,7 +491,7 @@ section{
 *  ============================================ */
 
 
-@media (min-width : 1500px){
+@media (min-width : 1600px){
 	body{
 		margin-left: baseline(6);
 	}
@@ -509,8 +531,15 @@ section{
 				width: 100%;
 				height: 1px;
 				border: none;
-				border-top: 1px solid $color-2;
+				border-top: 1px solid $color-1;
 			}
 		}
+	}
+}
+
+@media (max-width : 600px){
+	.Primary-header{
+		height: baseline(5);
+		overflow: hidden;
 	}
 }

@@ -2,9 +2,11 @@
 <html>
 <head>
 <title>Title of the document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 <script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/plugins.js"></script>
 <script src="js/custom.js"></script>
 
 </head>
@@ -13,7 +15,9 @@
 	
 	<header class="Primary-header">
 		<div class="logo">
-			<img class="logo__image" src="images/logo.svg">
+			<a href="index.html">
+				<img class="logo__image" src="images/logo.svg">
+			</a>
 		</div>
 		<nav>
 			<ul class="Primary-header__navigation">
@@ -27,7 +31,7 @@
 	
 	
 	
-	<section class="Hero-header">
+	<section class="Hero-header" id="Start-here">
 		
 		<div class="contain">
 			
@@ -38,18 +42,18 @@
 				</div>
 				
 				<div class="col col--1-2">
-					<form class="Cta-form js-highlight-form">
+					<form class="Cta-form js-highlight-form" id="Main-form">
 						<h3 class="title title--lines"><span>Start Here</span></h3>
 						<div class="Field Field--short-form Field--icon">
 							<i class="fa fa-envelope"></i>
-							<label for="field-1">Email</label>
-							<input class="Field__element" type="text" placeholder="Email" id="fn">
+							<label for="email">Email</label>
+							<input class="Field__element" type="text" placeholder="Email" id="email">
 						</div>
 						
 						<div class="Field Field--short-form Field--icon Field--select">
 							<i class="fa fa-usd"></i>
-							<label for="field-3">Amount</label>
-							<select class="Field__element" id="field-3">
+							<label for="amount">Amount</label>
+							<select class="Field__element" id="amount">
 								<option>Amount</option>
 								<option>Select Box</option>
 								<option>Select Box</option>
@@ -67,7 +71,12 @@
 								<option>Select Box</option>
 							</select>
 						</div>
-						<input type="submit" value="Submit" class="btn btn--large">
+						<div class="Field Field--optin">
+							<input class="Field__element Field__checkbox" type="checkbox" id="optin"> <label for="optin">I certify that I am a U.S. Resident over the age of 18, I agree to the <a href="privacy.html">Privacy Policy</a> &amp; <a href="terms.html">Terms of Use</a> and that I may receive special offers.</label>
+						</div>
+						<div class="Submit-wrap">
+							<button type="submit" class="btn btn--large btn--submit">Submit Now<i class="fa fa-angle-right"></i></button>
+						</div>
 
 					</form>
 				</div>
@@ -84,9 +93,9 @@
 	
 			<p class="caption">During these uncertain economic times, many people are finding themselves faced with a situation where they could use some financial assistance.</p>
 			
-			<div class="row blurb-row">
+			<div class="row blurb-row Blurbs">
 				<div class="col col--1-4">
-					<div class="blurb">
+					<div class="blurb js-appear is-out-viewport" appear-delay="0">
 						<div class="blurb__icon">
 							<i class="fa fa-life-ring"></i>
 						</div>
@@ -95,7 +104,7 @@
 				</div>
 				
 				<div class="col col--1-4">
-					<div class="blurb">
+					<div class="blurb js-appear is-out-viewport" appear-delay="0.1">
 						<div class="blurb__icon">
 							<i class="fa fa-home"></i>
 						</div>
@@ -104,7 +113,7 @@
 				</div>
 				
 				<div class="col col--1-4">
-					<div class="blurb">
+					<div class="blurb js-appear is-out-viewport" appear-delay="0.2">
 						<div class="blurb__icon">
 							<i class="fa fa-credit-card"></i>
 						</div>
@@ -113,7 +122,7 @@
 				</div>
 				
 				<div class="col col--1-4">
-					<div class="blurb">
+					<div class="blurb js-appear is-out-viewport" appear-delay="0.3">
 						<div class="blurb__icon">
 							<i class="fa fa-suitcase"></i>
 						</div>
@@ -161,7 +170,7 @@
 		<div class="contain">
 			<h2>How Does it Work?</h2>
 			<p class="caption">Our fast and easy loan request process has been stripped down and simplified to help you request a loan faster than ever and get a lender match to help you with your financial needs.</p>
-			<a class="btn btn--large btn--color-alt" href="#">Start Now</a> <a class="btn btn--large btn--outline" href="#">Learn More</a>
+			<a class="btn btn--large btn--color js-anchor-nav js-focus-form" href="#Start-here">Start Now</a> <a class="btn btn--large btn--outline" href="how.html">Learn More</a>
 		</div>
 	</section>
 	
@@ -170,13 +179,11 @@
 			<div class="contain">
 				<p><strong>We Are Not Lenders or Brokers.</strong>The owner and operator of this website is not a lender, broker, agent, or representative of any lender and we do not provide any loans or make any credit decisions. The advertising contained on this website does not constitute an offer or solicitation to extend credit or lend money to you. This website provides a service wherein we collect information you voluntarily provide to us and we submit it to our independent network of companies, which includes lenders, who may be able to secure a loan for you. All financial terms and conditions of a loan will be presented to you by the lender. Any questions, concerns, or requests for more details on your loan should be directed to the lender and not to the owner and operator of this website. Typically lenders will not perform a credit check using the three major credit reporting bureaus: Experian, Equifax, or Trans Union, but they may obtain consumer credit reports from alternative providers.</p>
 				
-				<p><strong>Limitations.</strong> Not all lenders will offer up to $10,000 on your first installment loan. This may depend on the laws and regulations of the State in which you reside along with the information you provide to us for the lender’s review or on other factors that the lender may obtain through a consumer credit report. Providing your information to this website will not guarantee you may be approved for an installment loan. Refinancing may be available and is typically not automatic. Refinancing your loan will extend the term of the loan and may result in additional interest charges. Failing to make any scheduled loan payment may result in additional interest charges and fees and may damage your credit. You should endeavor to repay your loan on time and in full to avoid any extra charges, damage to your credit, or being subject to debt collections. The services of this website are not available in all sates and the states serviced by this website may change from time to time and without notice. This service does not constitute an offer or solicitation for an installment loan where prohibited by law.</p>
+				<p><strong>Limitations.</strong> Not all lenders will offer up to $10,000 on your first installment loan. This may depend on the laws and regulations of the State in which you reside along with the information you provide to us for the lender's review or on other factors that the lender may obtain through a consumer credit report. Providing your information to this website will not guarantee you may be approved for an installment loan. Refinancing may be available and is typically not automatic. Refinancing your loan will extend the term of the loan and may result in additional interest charges. Failing to make any scheduled loan payment may result in additional interest charges and fees and may damage your credit. You should endeavor to repay your loan on time and in full to avoid any extra charges, damage to your credit, or being subject to debt collections. The services of this website are not available in all sates and the states serviced by this website may change from time to time and without notice. This service does not constitute an offer or solicitation for an installment loan where prohibited by law.</p>
 				
-				<p><strong>No Endorsement.</strong> The operator of this website is a marketer who is compensated for their services as described in our marketing disclosure and does not endorse or recommend any service or product advertised on or through this site.</p>
+				<p><strong>No Endorsement.</strong> The operator of this website is a marketer who is compensated for their services as described in our <a class="js-modal" href="#marketing-disclosure">marketing disclosure</a> and does not endorse or recommend any service or product advertised on or through this site.</p>
 				
-				<p><strong>Marketing Disclosure</strong><br/>This website is a market place. The owner has a material financial connection to the provider of the goods and services referred to on the site. The owner receives payment for each qualified sale or payment for each potential customer referral. The owner is advertising on behalf of a third party advertiser with whom the provider of the products or services also has a material financial connection in that both advertisers receive payment for each qualified sale or payment for each potential customer referral. All information regarding the products and services on this website is provided by the third party advertiser. Upon completion of your registration, You will be redirected to the third party advertiser's site or You will be contacted by the Third Party Advertiser and you should review their terms and conditions and privacy policy as they may differ significantly from our own. The owner is not affiliate with the third party advertiser other than stated above. The owner does not recommend or endorse any product or service on this website.</p>
-			</div>
-			
+			</div>			
 		</section>
 		<nav>
 			<ul class="Primary-footer__navigation">
@@ -185,11 +192,18 @@
 				<li><a href="how.html">How it Works</a></li>
 				<li><a href="contact.html">Contact</a></li>
 				<li><a href="privacy.html">Privcay</a></li>
-				<li><a href="terms">Terms &amp; Services</a></li>
+				<li><a href="terms.html">Terms &amp; Conditions</a></a></li>
 			</ul>
 		</nav>
 	</footer>
 	
+	<div class="Modal" id="marketing-disclosure">
+		<a class="Modal__close js-close" href="#marketing-disclosure" js-animation="fadeOut">x</a>
+		<h3 class="Modal__title">Marketing Disclosure</h3>
+		<div class="Modal__content">
+			<p>This website is a market place. The owner has a material financial connection to the provider of the goods and services referred to on the site. The owner receives payment for each qualified sale or payment for each potential customer referral. The owner is advertising on behalf of a third party advertiser with whom the provider of the products or services also has a material financial connection in that both advertisers receive payment for each qualified sale or payment for each potential customer referral. All information regarding the products and services on this website is provided by the third party advertiser. Upon completion of your registration, You will be redirected to the third party advertiser's site or You will be contacted by the Third Party Advertiser and you should review their terms and conditions and privacy policy as they may differ significantly from our own. The owner is not affiliate with the third party advertiser other than stated above. The owner does not recommend or endorse any product or service on this website.</p>
+		</div>
+	</div>
 </body>
 
 </html>
